@@ -1,0 +1,66 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Color(0xfff25f5f),
+            title: Center(
+              child: Text(
+                "Kakegurui Wiki",
+                style: TextStyle(color: Color(0x61080808)),
+              ),
+            ),
+            leading: Icon(Icons.home),
+            actions: <Widget>[
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.menu),
+              )
+            ],
+          ),
+          body: ListView.builder(
+            itemCount: 20,
+            itemBuilder: (context, index) {
+              var circleAvatar = CircleAvatar;
+              return Padding(
+                padding: const EdgeInsets.only(
+                  top: 20,
+                ),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                      "https://cdn.myanimelist.net/r/200x268/images/characters/10/467162.jpg?s=3b3f2d234f522b0690e60d8ff9855342",
+                    ),
+                  ),
+                  title: Text(
+                    "Yumeko Jabami",
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  subtitle: Text(
+                    'Yumeko Jabami (蛇喰 夢子 Jabami Yumeko) is the main protagonist of Kakegurui - Compulsive Gambler.',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              );
+            },
+          )),
+    );
+  }
+}
